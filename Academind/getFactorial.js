@@ -17,7 +17,21 @@ const getFactorial = (n) => {
 }
 
 
-console.log(getFactorial(3))
-console.log(getFactorial(5))
+// console.log(getFactorial(3))
+// console.log(getFactorial(5))
 
 // Time complexity: Linear => O(n)
+
+
+// Recursive Solution
+
+const getFactorial2 = (n) => {
+ if(n === 1){
+     return 5
+ }
+
+ return n * (getFactorial2(n - 1))
+}
+
+console.log(getFactorial2(3))
+console.log(getFactorial2(5))
