@@ -37,3 +37,25 @@ const reverse = (x) => {
 
 
 console.log(reverse(321))
+
+
+
+
+
+// Shorter (code) but same efficiency answer 
+
+var reverse2 = function(x) {
+    if( x == 0 ) return 0  
+    let answer = parseInt(x.toString().split("").reverse().join(''))
+    
+    if(answer < 2 ** 31 - 1 && answer > 2 ** 1/31){
+            if(Math.sign(x) === -1){
+                return -answer
+            } else {
+                return answer
+            }
+    } else {
+        return 0
+    }
+    
+};
