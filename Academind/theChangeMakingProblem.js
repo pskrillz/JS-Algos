@@ -11,7 +11,7 @@
 
 // inputs
 const availCoins = [100, 50, 20, 10, 5, 2, 1];
-const targetVal = 50;
+const targetVal = 129;
 
 
 /**
@@ -44,7 +44,37 @@ function changeMaker(coins, val){
     return coinsUsed;
 }
 
-console.log(changeMaker(availCoins, targetVal))
+// console.log(changeMaker(availCoins, targetVal))
 
 
 // Time complexity (Greedy Solution): linear time = O(n)
+
+// First solution won't give correct answer if inputs are changed
+// So lets try a bruteforce approach next 
+
+function makeChangeBruteForce(coins, val){
+    let results = []
+    for(let i = 0; i < coins.length; i++){
+        results.push(changeMaker(coins.slice(i), val))
+    }
+
+    let smallestAmountOfCoins = Number.MAX_SAFE_INTEGER;
+    let finalResult; 
+    for(let result of results){
+        if(result.numberOfCoins < smallestAmountOfCoins ){
+            smallestAmountOfCoins = result.numberOfCoins 
+            finalResult = result
+        }
+    }
+    return finalResult;
+}
+
+//inputs2
+
+let coins2 = [ 8, 6, 5, 1]
+let amount = 83;
+
+let result = makeChangeBruteForce(coins2, amount)
+console.log(result)
+
+// Time Complexity (Brute Force Solution) = O(n^2) = quadratic time complexity. 
