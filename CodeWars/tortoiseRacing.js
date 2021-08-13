@@ -1,4 +1,4 @@
-/*
+/* 6kyu problem **
 Two tortoises named A and B must run a race.
  A starts with an average speed of 720 feet per hour.
   Young B knows she runs faster than A, and furthermore 
