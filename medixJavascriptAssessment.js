@@ -113,7 +113,7 @@ undefined
 
 
 
-/*********************************************************
+/*********************************************************Check this.
 * Question 4: If I run the following code on the browser, what will happen?
 *
 * JavaScript concepts: variable scope, hosting, ES6
