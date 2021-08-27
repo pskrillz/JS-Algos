@@ -49,11 +49,56 @@ function calcBestProfit(prices){
         greatest = Math.max(prices[j], greatest)
     }
     
-    return greatest - lowest
+    let result = greatest - lowest
+    
+    return Math.sign(result) == -1 ? 0: result 
     
 }
 
-console.log(calcBestProfit(input))
+//console.log(calcBestProfit(input))
 
 // Does not pass all test cases;
 // Only gets the lowest, and the biggest number after that, doesnt account for bigger profits earlier (outside of the lowest)
+
+
+/*
+
+Simple bruteforce solution:: 
+
+(java)
+public class Solution {
+    public int maxProfit(int prices[]) {
+        int maxprofit = 0;
+        for (int i = 0; i < prices.length - 1; i++) {
+            for (int j = i + 1; j < prices.length; j++) {
+                int profit = prices[j] - prices[i];
+                if (profit > maxprofit)
+                    maxprofit = profit;
+            }
+        }
+        return maxprofit;
+    }
+}
+
+*/
+
+
+// My Solution: One Pass O(n)
+
+var maxProfit = (prices) => {
+    let lowest = Number.MAX_VALUE;
+    let maxProfit = 0
+    
+    for(let i = 0; i < prices.length; i++){
+        if(prices[i] < lowest) {
+            lowest = prices[i]
+        } else if (prices[i] - lowest > maxProfit){
+            maxProfit = prices[i] - lowest
+        }
+    }
+    
+    return maxProfit
+    
+};
+
+console.log(maxProfit(input))
